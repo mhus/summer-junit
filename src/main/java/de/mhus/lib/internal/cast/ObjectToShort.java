@@ -15,12 +15,12 @@
  */
 package de.mhus.lib.internal.cast;
 
-import de.mhus.lib.internal.Log;
-import de.mhus.lib.internal.Value;
+import de.mhus.lib.internal.TLog;
+import de.mhus.lib.internal.TValue;
 
 public class ObjectToShort implements Caster<Object, Short> {
 
-    private static final Log log = Log.getLog(ObjectToShort.class);
+    private static final TLog log = TLog.getLog(ObjectToShort.class);
 
     @Override
     public Class<? extends Short> getToClass() {
@@ -34,12 +34,12 @@ public class ObjectToShort implements Caster<Object, Short> {
 
     @Override
     public Short cast(Object in, Short def) {
-        Value<Short> ret = new Value<>(def);
+        TValue<Short> ret = new TValue<>(def);
         toShort(in, (short) 0, ret);
         return ret.getValue();
     }
 
-    public short toShort(Object in, short def, Value<Short> ret) {
+    public short toShort(Object in, short def, TValue<Short> ret) {
         if (in == null) return def;
         if (in instanceof Short) {
             if (ret != null) ret.setValue((Short) in);

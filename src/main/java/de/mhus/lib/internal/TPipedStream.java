@@ -20,9 +20,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class PipedStream implements Closeable {
+public class TPipedStream implements Closeable {
 
-    private CircularByteBuffer byteBuffer = new CircularByteBuffer(10000);
+    private TCircularByteBuffer byteBuffer = new TCircularByteBuffer(10000);
     private Out out = new Out();
     private In in = new In();
     private long writeTimeout = -1;
@@ -64,7 +64,7 @@ public class PipedStream implements Closeable {
                 TThread.sleep(200);
                 if (isTimeOut(start, writeTimeout)) throw new IOException("write timeout");
             }
-            synchronized (PipedStream.this) {
+            synchronized (TPipedStream.this) {
                 //                System.out.println("Write: " + (char)b + " (" + b + ")");
                 byteBuffer.putInt(b);
             }
@@ -82,7 +82,7 @@ public class PipedStream implements Closeable {
                 TThread.sleep(200);
                 if (isTimeOut(start, readTimeout)) throw new IOException("read timeout");
             }
-            synchronized (PipedStream.this) {
+            synchronized (TPipedStream.this) {
                 byte o = byteBuffer.get();
                 //               System.err.println("Read: " + (char)o + "(" + o + ")");
                 return o;

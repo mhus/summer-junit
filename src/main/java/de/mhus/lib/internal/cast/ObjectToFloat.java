@@ -15,12 +15,12 @@
  */
 package de.mhus.lib.internal.cast;
 
-import de.mhus.lib.internal.Log;
-import de.mhus.lib.internal.Value;
+import de.mhus.lib.internal.TLog;
+import de.mhus.lib.internal.TValue;
 
 public class ObjectToFloat implements Caster<Object, Float> {
 
-    private static final Log log = Log.getLog(ObjectToFloat.class);
+    private static final TLog log = TLog.getLog(ObjectToFloat.class);
 
     @Override
     public Class<? extends Float> getToClass() {
@@ -34,12 +34,12 @@ public class ObjectToFloat implements Caster<Object, Float> {
 
     @Override
     public Float cast(Object in, Float def) {
-        Value<Float> ret = new Value<>(def);
+        TValue<Float> ret = new TValue<>(def);
         toFloat(in, 0, ret);
         return ret.getValue();
     }
 
-    public float toFloat(Object in, float def, Value<Float> ret) {
+    public float toFloat(Object in, float def, TValue<Float> ret) {
         if (in == null) return def;
         if (in instanceof Number) {
             float r = ((Number) in).floatValue();

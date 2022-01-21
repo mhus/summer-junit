@@ -22,7 +22,7 @@ package de.mhus.lib.internal;
  */
 public class TThread {
 
-    protected static Log log = Log.getLog(TThread.class);
+    protected static TLog log = TLog.getLog(TThread.class);
 
     /**
      * Sleeps _millisec milliseconds. On Interruption it will throw an RuntimeInterruptedException
@@ -33,7 +33,7 @@ public class TThread {
         try {
             Thread.sleep(_millisec);
         } catch (InterruptedException e) {
-            throw new RuntimeInterruptedException(e);
+            throw new TRuntimeInterruptedException(e);
         }
     }
 

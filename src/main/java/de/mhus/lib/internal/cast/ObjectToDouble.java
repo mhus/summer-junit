@@ -15,12 +15,12 @@
  */
 package de.mhus.lib.internal.cast;
 
-import de.mhus.lib.internal.Log;
-import de.mhus.lib.internal.Value;
+import de.mhus.lib.internal.TLog;
+import de.mhus.lib.internal.TValue;
 
 public class ObjectToDouble implements Caster<Object, Double> {
 
-    private static final Log log = Log.getLog(ObjectToDouble.class);
+    private static final TLog log = TLog.getLog(ObjectToDouble.class);
 
     @Override
     public Class<? extends Double> getToClass() {
@@ -34,12 +34,12 @@ public class ObjectToDouble implements Caster<Object, Double> {
 
     @Override
     public Double cast(Object in, Double def) {
-        Value<Double> ret = new Value<>(def);
+        TValue<Double> ret = new TValue<>(def);
         toDouble(in, 0, ret);
         return ret.getValue();
     }
 
-    public double toDouble(Object in, double def, Value<Double> ret) {
+    public double toDouble(Object in, double def, TValue<Double> ret) {
         if (in == null) return def;
         if (in instanceof Number) {
             double r = ((Number) in).doubleValue();

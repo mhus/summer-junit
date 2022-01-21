@@ -18,11 +18,11 @@ package de.mhus.lib.internal;
 import java.util.List;
 import java.util.WeakHashMap;
 
-import de.mhus.lib.internal.Log.LEVEL;
+import de.mhus.lib.internal.TLog.LEVEL;
 
-public abstract class LogFactory {
+public abstract class TLogFactory {
 
-    WeakHashMap<String, LogEngine> buffer = new WeakHashMap<String, LogEngine>();
+    WeakHashMap<String, TLogEngine> buffer = new WeakHashMap<String, TLogEngine>();
     protected LEVEL level = LEVEL.INFO;
     // protected LevelMapper levelMapper;
     private int maxMsgSize = 10000; // default max length
@@ -35,7 +35,7 @@ public abstract class LogFactory {
      * @param clazz Class for which a suitable Log name will be derived
      * @return The current log engine
      */
-    public LogEngine getInstance(Class<?> clazz) {
+    public TLogEngine getInstance(Class<?> clazz) {
         return getInstance(clazz.getCanonicalName());
     }
 
@@ -52,8 +52,8 @@ public abstract class LogFactory {
      *     name is only known to the underlying logging implementation that is being wrapped)
      * @return the log engine
      */
-    public synchronized LogEngine getInstance(String name) {
-        LogEngine inst = buffer.get(name);
+    public synchronized TLogEngine getInstance(String name) {
+        TLogEngine inst = buffer.get(name);
         if (inst == null) {
             inst = createInstance(name);
             inst.doInitialize(this);
@@ -75,9 +75,9 @@ public abstract class LogFactory {
      *     name is only known to the underlying logging implementation that is being wrapped)
      * @return the log engine
      */
-    public abstract LogEngine createInstance(String name);
+    public abstract TLogEngine createInstance(String name);
 
-    public LogEngine getLog(Class<?> class1) {
+    public TLogEngine getLog(Class<?> class1) {
         return getInstance(class1);
     }
 

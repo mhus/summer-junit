@@ -19,13 +19,13 @@ import java.io.IOException;
 import java.io.NotSerializableException;
 import java.io.Serializable;
 
-public class Value<T> implements Valueable<T>, Serializable {
+public class TValue<T> implements TValueable<T>, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Value() {}
+    public TValue() {}
 
-    public Value(T initial) {
+    public TValue(T initial) {
         value = initial;
     }
 
@@ -38,8 +38,8 @@ public class Value<T> implements Valueable<T>, Serializable {
 
     @Override
     public boolean equals(Object in) {
-        if (in != null && in instanceof Valueable)
-            return TSystem.equals(value, ((Valueable<?>) in).getValue());
+        if (in != null && in instanceof TValueable)
+            return TSystem.equals(value, ((TValueable<?>) in).getValue());
         return TSystem.equals(value, in);
     }
 

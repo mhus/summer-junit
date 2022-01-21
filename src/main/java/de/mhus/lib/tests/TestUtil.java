@@ -15,14 +15,23 @@
  */
 package de.mhus.lib.tests;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Optional;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.junit.jupiter.api.TestInfo;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import de.mhus.lib.internal.TUri;
+import de.mhus.lib.internal.TXml;
 
 public class TestUtil {
 
@@ -120,5 +129,22 @@ public class TestUtil {
                         + "::"
                         + (method == null || method.isEmpty() ? "?" : method.get().getName()));
     }
+
+    public static String getPluginVersion(String uriStr) {
+        TUri uri = TUri.toUri(uriStr);
+        String[] parts = uri.getPath().split("/");
+        return parts[2];
+    }
+ 
+    public static String currentVersion()
+            throws ParserConfigurationException, SAXException, IOException {
+        Document doc = TXml.loadXml(new File("pom.xml"));
+        String version = TXml.getValue(doc.getDocumentElement(), "/parent/version", "");
+        return version;
+    }
+
+	public static void enableDebug() {
+		
+	}
 
 }

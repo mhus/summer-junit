@@ -19,13 +19,13 @@ import java.io.EOFException;
 import java.nio.BufferOverflowException;
 
 /** Description of CircularByteBuffer. */
-public class CircularByteBuffer extends AbstractByteBuffer {
+public class TCircularByteBuffer extends TAbstractByteBuffer {
     /**
      * Constructs the CircularByteBuffer.
      *
      * @param size
      */
-    public CircularByteBuffer(int size) {
+    public TCircularByteBuffer(int size) {
         this.size = size;
         buf = new byte[size];
         clear();

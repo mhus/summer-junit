@@ -17,9 +17,9 @@ package de.mhus.lib.tests.docker;
 
 import java.util.LinkedList;
 
-import de.mhus.lib.internal.TLog;
+import de.mhus.lib.internal.TObject;
 
-public class AnsiLogFilter extends TLog implements LogFilter {
+public class AnsiLogFilter extends TObject implements LogFilter {
 
     @Override
     public void doFilter(LinkedList<Byte> array) {

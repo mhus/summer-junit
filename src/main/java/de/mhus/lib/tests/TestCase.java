@@ -26,10 +26,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 
 import de.mhus.lib.internal.TCast;
-import de.mhus.lib.internal.TLog;
+import de.mhus.lib.internal.TObject;
 import de.mhus.lib.internal.TStopWatch;
 
-public class TestCase extends TLog {
+public class TestCase extends TObject {
 
     private TStopWatch timer;
     protected boolean skipTest = false;

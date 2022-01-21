@@ -15,7 +15,7 @@
  */
 package de.mhus.lib.internal.cast;
 
-import de.mhus.lib.internal.Value;
+import de.mhus.lib.internal.TValue;
 
 public class ObjectToBoolean implements Caster<Object, Boolean> {
 
@@ -31,12 +31,12 @@ public class ObjectToBoolean implements Caster<Object, Boolean> {
 
     @Override
     public Boolean cast(Object in, Boolean def) {
-        Value<Boolean> ret = new Value<>(def);
+        TValue<Boolean> ret = new TValue<>(def);
         toBoolean(in, false, ret);
         return ret.getValue();
     }
 
-    public boolean toBoolean(Object in, boolean def, Value<Boolean> ret) {
+    public boolean toBoolean(Object in, boolean def, TValue<Boolean> ret) {
         if (in == null) return def;
 
         if (in instanceof Boolean) return (Boolean) in;

@@ -73,7 +73,7 @@ public final class TCast {
         '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'
     };
 
-    private static VectorMap<Class<?>, Class<?>, Caster<?, ?>> casters = new VectorMap<>();
+    private static TVectorMap<Class<?>, Class<?>, Caster<?, ?>> casters = new TVectorMap<>();
 
     private static final ObjectToBoolean OBJECT_TO_BOOLEAN = new ObjectToBoolean();
     private static final ObjectToInteger OBJECT_TO_INTEGER = new ObjectToInteger();

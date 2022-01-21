@@ -15,7 +15,7 @@
  */
 package de.mhus.lib.internal;
 
-public interface Valueable<T> {
+public interface TValueable<T> {
 
     T getValue();
 }

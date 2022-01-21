@@ -15,11 +15,11 @@
  */
 package de.mhus.lib.internal;
 
-public abstract class LogEngine {
+public abstract class TLogEngine {
 
     private String name;
 
-    public LogEngine(String name) {
+    public TLogEngine(String name) {
         this.name = name;
     }
 
@@ -177,7 +177,7 @@ public abstract class LogEngine {
      */
     public abstract void fatal(Object message, Throwable t);
 
-    public abstract void doInitialize(LogFactory logFactory);
+    public abstract void doInitialize(TLogFactory logFactory);
 
     public abstract void close();
 }

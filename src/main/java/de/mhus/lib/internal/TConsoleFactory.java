@@ -17,7 +17,7 @@ package de.mhus.lib.internal;
 
 import java.io.PrintStream;
 
-public class ConsoleFactory extends LogFactory {
+public class TConsoleFactory extends TLogFactory {
 
     public static int FIX_NAME_LENGTH = 30;
     // public static boolean tracing = true;
@@ -25,12 +25,12 @@ public class ConsoleFactory extends LogFactory {
     private boolean printTime = true;
 	private PrintStream out;
 
-    public ConsoleFactory() {
+    public TConsoleFactory() {
         out = System.out;
     }
 
     @Override
-    public LogEngine createInstance(String name) {
+    public TLogEngine createInstance(String name) {
         return new ConsoleLog(name);
     }
 
@@ -41,15 +41,15 @@ public class ConsoleFactory extends LogFactory {
         return "";
     }
 
-    public Log.LEVEL getLevel() {
+    public TLog.LEVEL getLevel() {
         return level;
     }
 
-    public void setLevel(Log.LEVEL level) {
+    public void setLevel(TLog.LEVEL level) {
         this.level = level;
     }
 
-    private class ConsoleLog extends LogEngine {
+    private class ConsoleLog extends TLogEngine {
 
         private String fixName;
 
@@ -151,32 +151,32 @@ public class ConsoleFactory extends LogFactory {
 
         @Override
         public boolean isDebugEnabled() {
-            return getLevel().ordinal() <= Log.LEVEL.DEBUG.ordinal();
+            return getLevel().ordinal() <= TLog.LEVEL.DEBUG.ordinal();
         }
 
         @Override
         public boolean isErrorEnabled() {
-            return getLevel().ordinal() <= Log.LEVEL.ERROR.ordinal();
+            return getLevel().ordinal() <= TLog.LEVEL.ERROR.ordinal();
         }
 
         @Override
         public boolean isFatalEnabled() {
-            return getLevel().ordinal() <= Log.LEVEL.FATAL.ordinal();
+            return getLevel().ordinal() <= TLog.LEVEL.FATAL.ordinal();
         }
 
         @Override
         public boolean isInfoEnabled() {
-            return getLevel().ordinal() <= Log.LEVEL.INFO.ordinal();
+            return getLevel().ordinal() <= TLog.LEVEL.INFO.ordinal();
         }
 
         @Override
         public boolean isTraceEnabled() {
-            return getLevel().ordinal() <= Log.LEVEL.TRACE.ordinal();
+            return getLevel().ordinal() <= TLog.LEVEL.TRACE.ordinal();
         }
 
         @Override
         public boolean isWarnEnabled() {
-            return getLevel().ordinal() <= Log.LEVEL.WARN.ordinal();
+            return getLevel().ordinal() <= TLog.LEVEL.WARN.ordinal();
         }
 
         @Override
@@ -237,7 +237,7 @@ public class ConsoleFactory extends LogFactory {
         }
 
         @Override
-        public void doInitialize(LogFactory logFactory) {}
+        public void doInitialize(TLogFactory logFactory) {}
 
         @Override
         public void close() {}

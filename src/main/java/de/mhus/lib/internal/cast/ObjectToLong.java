@@ -15,12 +15,12 @@
  */
 package de.mhus.lib.internal.cast;
 
-import de.mhus.lib.internal.Log;
-import de.mhus.lib.internal.Value;
+import de.mhus.lib.internal.TLog;
+import de.mhus.lib.internal.TValue;
 
 public class ObjectToLong implements Caster<Object, Long> {
 
-    private static final Log log = Log.getLog(ObjectToLong.class);
+    private static final TLog log = TLog.getLog(ObjectToLong.class);
 
     @Override
     public Class<? extends Long> getToClass() {
@@ -34,12 +34,12 @@ public class ObjectToLong implements Caster<Object, Long> {
 
     @Override
     public Long cast(Object in, Long def) {
-        Value<Long> ret = new Value<>(def);
+        TValue<Long> ret = new TValue<>(def);
         toLong(in, 0, ret);
         return ret.getValue();
     }
 
-    public long toLong(Object in, long def, Value<Long> ret) {
+    public long toLong(Object in, long def, TValue<Long> ret) {
         if (in == null) return def;
         if (in instanceof Number) {
             long r = ((Number) in).longValue();

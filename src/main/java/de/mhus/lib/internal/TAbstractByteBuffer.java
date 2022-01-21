@@ -19,7 +19,7 @@ import java.io.EOFException;
 import java.nio.BufferOverflowException;
 
 /** Byte buffer with operation to support getting and putting bytes. */
-public abstract class AbstractByteBuffer {
+public abstract class TAbstractByteBuffer {
     /** @return true if the buffer is empty. */
     public boolean isEmpty() {
         return length() == 0;

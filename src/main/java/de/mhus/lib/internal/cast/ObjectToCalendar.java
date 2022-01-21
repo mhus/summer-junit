@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import de.mhus.lib.internal.Log;
+import de.mhus.lib.internal.TLog;
 import de.mhus.lib.internal.TCast;
 import de.mhus.lib.internal.TString;
 
@@ -40,7 +40,7 @@ import de.mhus.lib.internal.TString;
  */
 public class ObjectToCalendar implements Caster<Object, Calendar> {
 
-    private static final Log log = Log.getLog(ObjectToCalendar.class);
+    private static final TLog log = TLog.getLog(ObjectToCalendar.class);
     private static HashMap<String, Integer> monthCatalog = new HashMap<>();
 
     static {

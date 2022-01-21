@@ -17,7 +17,7 @@ package de.mhus.lib.internal;
 
 import java.util.HashMap;
 
-public class VectorMap<K1, K2, V> extends HashMap<K1, HashMap<K2, V>> {
+public class TVectorMap<K1, K2, V> extends HashMap<K1, HashMap<K2, V>> {
 
     private static final long serialVersionUID = 1L;
 

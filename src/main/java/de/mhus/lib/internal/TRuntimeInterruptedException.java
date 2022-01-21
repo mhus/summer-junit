@@ -15,15 +15,15 @@
  */
 package de.mhus.lib.internal;
 
-public class RuntimeInterruptedException extends RuntimeException {
+public class TRuntimeInterruptedException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public RuntimeInterruptedException() {
+    public TRuntimeInterruptedException() {
         super();
     }
 
-    public RuntimeInterruptedException(Throwable cause) {
+    public TRuntimeInterruptedException(Throwable cause) {
         super(cause);
     }
 }

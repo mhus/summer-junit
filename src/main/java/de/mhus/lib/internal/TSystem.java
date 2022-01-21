@@ -51,7 +51,7 @@ public class TSystem {
         SOLARIS
     }
 
-    private static Log log = Log.getLog(TSystem.class);
+    private static TLog log = TLog.getLog(TSystem.class);
     private static ThreadMXBean tmxb = ManagementFactory.getThreadMXBean();
     private static String hostname; // cached hostname
 

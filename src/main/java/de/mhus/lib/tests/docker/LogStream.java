@@ -25,11 +25,11 @@ import de.mhus.lib.internal.TCast;
 import de.mhus.lib.internal.TException;
 import de.mhus.lib.internal.TString;
 import de.mhus.lib.internal.TThread;
-import de.mhus.lib.internal.PipedStream;
+import de.mhus.lib.internal.TPipedStream;
 
 public class LogStream extends com.github.dockerjava.api.async.ResultCallback.Adapter<Frame> {
 
-    private PipedStream output = new PipedStream();
+    private TPipedStream output = new TPipedStream();
     private DockerContainer cont;
     private boolean print = true;
     private boolean closed = false;
@@ -45,7 +45,7 @@ public class LogStream extends com.github.dockerjava.api.async.ResultCallback.Ad
         this.cont = cont;
     }
 
-    public PipedStream getOutput() {
+    public TPipedStream getOutput() {
         return output;
     }
 
